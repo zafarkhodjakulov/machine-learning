@@ -2,12 +2,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-import string
-import nltk
-import nltk.corpus as stopwords
-from sys import path
-
+from sklearn.feature_extraction.text import CountVectorizer
 
 
 df = pd.read_csv(r'navie-bayes/spam.csv', encoding='latin-1')
@@ -29,10 +24,10 @@ model = MultinomialNB()
 model.fit(x_train_vec, y_train)
 
 y_pred = model.predict(x_test_vec)
-# print("📊 Classification Report:")
-# print(classification_report(y_test, y_pred))
-# print("\n✅ Accuracy:", accuracy_score(y_test, y_pred))   
-# print("\n🧩 Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("📊 Classification Report:")
+print(classification_report(y_test, y_pred))
+print("\n✅ Accuracy:", accuracy_score(y_test, y_pred))   
+print("\n🧩 Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
 
 def predict_message(text):
