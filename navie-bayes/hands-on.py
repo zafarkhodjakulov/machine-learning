@@ -24,18 +24,18 @@ model = MultinomialNB()
 model.fit(x_train_vec, y_train)
 
 y_pred = model.predict(x_test_vec)
-print("📊 Classification Report:")
+print("Classification Report:")
 print(classification_report(y_test, y_pred))
-print("\n✅ Accuracy:", accuracy_score(y_test, y_pred))   
-print("\n🧩 Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("\nAccuracy:", accuracy_score(y_test, y_pred))   
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
 
 def predict_message(text):
     text_vec = vectorizer.transform([text])
     y_p = model.predict(text_vec)
-    return "📨 SPAM" if y_p[0] == 1 else "✅ HAM (oddiy xabar)"
+    return "SPAM" if y_p[0] == 1 else "HAM (oddiy xabar)"
     
-prd = predict_message("You have two cars and a house in your name.")
+prd = predict_message("Congratulations! You've won a lottery of $1000!")
 print(prd)
 
 
